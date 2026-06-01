@@ -90,7 +90,7 @@ import {
   type User,
   type UserCreateRequest,
   type UserUpdateRequest
-} from '@/api/user'
+} from '../api/user'
 
 // ─── 状态 ────────────────────────────────
 const loading = ref(false)
