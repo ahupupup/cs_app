@@ -10,7 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  // API 代理配置（解决跨域问题）
+  // API 代理配置（仅开发环境有效，生产环境需要后端地址）
   server: {
     proxy: {
       '/api': {

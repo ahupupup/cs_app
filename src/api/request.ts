@@ -5,10 +5,14 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
+// FastAPI 后端地址
+// 开发环境：使用 Vite 代理 /api -> localhost:8000
+// 生产环境：使用环境变量中的后端地址
+const baseURL = import.meta.env.VITE_API_BASE_URL || '/api'
+
 // 创建 axios 实例
 const service: AxiosInstance = axios.create({
-  // FastAPI 后端地址（使用代理 /api -> 127.0.0.1:8000）
-  baseURL: '/api',
+  baseURL,
   // 请求超时时间
   timeout: 30000,
   // 请求头
@@ -23,7 +27,7 @@ service.interceptors.request.use(
     // 可在此添加 token 等认证信息
     const token = localStorage.getItem('token')
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`
+      config.headers.Authorization = `  ${token}`
     }
     return config
   },
